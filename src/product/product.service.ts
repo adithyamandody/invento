@@ -13,10 +13,18 @@ export class ProductService {
   ) {}
 
   create(createDto: CreateProductDto) {
-    this.productRepository.save(createDto);
+    return this.productRepository.save(createDto);
   }
 
   update(updateDto: UpdateProductDto) {
     this.productRepository.update(updateDto.id, updateDto);
+  }
+
+  getOne(id: number) {
+    return this.productRepository.findOne({ where: { id } });
+  }
+
+  get(): Promise<Product[]> {
+    return this.productRepository.find();
   }
 }

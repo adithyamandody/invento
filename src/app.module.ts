@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Product } from './product/product';
 import { ProductModule } from './product/product.module';
 
 @Module({
@@ -13,7 +14,7 @@ import { ProductModule } from './product/product.module';
       username: 'root',
       password: '',
       database: 'invento',
-      entities: [],
+      entities: [Product],
       synchronize: true,
     }),
     ProductModule,
